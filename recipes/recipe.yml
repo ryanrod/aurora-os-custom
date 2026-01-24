@@ -51,7 +51,7 @@ modules:
           - org.libreoffice.LibreOffice
           - org.audacityteam.Audacity
           - com.spotify.Client
-          - org.gnome.Loup
+          - org.gnome.Loupe
           - org.gimp.GIMP
       # - scope: user # Also add Flathub user repo, but no user packages
 
