@@ -48,7 +48,7 @@ modules:
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
-  - type: gschema
+  - type: gschema-overrides
       # This pre-configures desktop settings (extensions, dock, etc.)
     include:
-      - files/gschema/00-settings.gschema.override
+      - 00-settings.gschema.override
