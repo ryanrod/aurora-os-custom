@@ -43,6 +43,8 @@ modules:
         install: # system flatpaks we want all users to have and not remove
           - com.google.Chrome
           - org.libreoffice.LibreOffice
+          - org.audacityteam.Audacity
+          - com.spotify.Client
       # - scope: user # Also add Flathub user repo, but no user packages
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
@@ -51,3 +53,10 @@ modules:
       # This pre-configures desktop settings (extensions, dock, etc.)
     include:
       - 00-settings.gschema.override
+
+  - type: systemd
+    system:
+      enabled:
+        - rpm-ostreed-automatic.timer
+        - tailscaled.service
+        
