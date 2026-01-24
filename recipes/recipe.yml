@@ -26,7 +26,6 @@ modules:
     #     - atim/starship
     install:
       packages:
-        - rustdesk
         - tailscale
         - vlc
     # remove:
