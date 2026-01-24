@@ -1,0 +1,1 @@
+bluebuild generate-iso --iso-name aurora-os-custom.iso image ghcr.io/ryanrod/aurora-os-custom

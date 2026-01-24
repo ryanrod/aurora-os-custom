@@ -24,16 +24,17 @@ modules:
     # repos:
     #   copr:
     #     - atim/starship
-    # install:
-    #   packages:
-    #     - micro
-    #     - starship
-    remove:
+    install:
       packages:
-        # example: removing firefox (in favor of the flatpak)
-        # "firefox" is the main package, "firefox-langpacks" is a dependency
-        - firefox
-        - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+        - rustdesk
+        - tailscale
+        - vlc
+    # remove:
+    #   packages:
+    #     # example: removing firefox (in favor of the flatpak)
+    #     # "firefox" is the main package, "firefox-langpacks" is a dependency
+    #     - firefox
+    #     - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
 
   - type: default-flatpaks
     configurations:
@@ -41,10 +42,13 @@ modules:
         scope: system
         # If no repo information is specified, Flathub will be used by default
         install: # system flatpaks we want all users to have and not remove
-          - org.mozilla.firefox
           - com.google.Chrome
-          - org.videolan.VLC
           - org.libreoffice.LibreOffice
       # - scope: user # Also add Flathub user repo, but no user packages
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
+
+  - type: gschema
+      # This pre-configures desktop settings (extensions, dock, etc.)
+    include:
+      - files/gschema/00-settings.gschema.override
