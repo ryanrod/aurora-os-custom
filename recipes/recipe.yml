@@ -41,6 +41,10 @@ modules:
     #     - firefox
     #     - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
 
+  - type: rpm-ostree
+    install:
+      - https://github.com/rustdesk/rustdesk/releases/download/1.4.5/rustdesk-1.4.5-fedora-x86_64.rpm
+
   - type: default-flatpaks
     configurations:
       - notify: true # Send notification after install/uninstall is finished (true/false)
@@ -57,14 +61,9 @@ modules:
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
-  - type: gschema-overrides
-      # This pre-configures desktop settings (extensions, dock, etc.)
-    include:
-      - 00-settings.gschema.override
-
   - type: systemd
     system:
       enabled:
         - rpm-ostreed-automatic.timer
         - tailscaled.service
-        
+        - rustdesk.service
